@@ -22,10 +22,6 @@
   <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
   [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
 
-## Description
-
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
-
 ## Installation
 
 ```bash
@@ -58,16 +54,25 @@ $ npm run test:e2e
 $ npm run test:cov
 ```
 
-## Support
+## Sample local cURL requests
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+```bash
+# Add a book to the in-memory collection
+$ curl --location --request POST 'http://localhost:3000/books' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "id": 7,
+    "title": "Seventh book",
+    "description": "This is the description for the Seventh book",
+    "author": "Olususi Oluyemi"
+}'
 
-## Stay in touch
+# Delete a book from the in-memory collection
+$ curl --location --request DELETE 'http://localhost:3000/books?bookId=2'
 
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+# Get all books
+$ curl --location --request GET 'http://localhost:3000/books'
 
-## License
-
-Nest is [MIT licensed](LICENSE).
+# Get a single book
+$ curl --location --request GET 'http://localhost:3000/books/2'
+```
